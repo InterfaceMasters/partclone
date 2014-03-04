@@ -6645,10 +6645,11 @@ supported_fs=""
 ##enable-all##
 # Check whether --enable-all was given.
 if test "${enable_all+set}" = set; then :
-  enableval=$enable_all; enable_all=yes
+  enableval=$enable_all;
 fi
 
- if test "$enable_all" = yes; then
+
+ if test "$enable_all" != "no"; then
   ENABLE_ALL_TRUE=
   ENABLE_ALL_FALSE='#'
 else
@@ -6656,7 +6657,7 @@ else
   ENABLE_ALL_FALSE=
 fi
 
-if test "$enable_all" = "yes"; then
+if test "$enable_all" != "no"; then
 enable_xfs="yes"
 enable_extfs="yes"
 enable_reiserfs="yes"
@@ -6926,10 +6927,7 @@ fi
 ##ext2/3##
 # Check whether --enable-extfs was given.
 if test "${enable_extfs+set}" = set; then :
-  enableval=$enable_extfs; enable_extfs=yes
-else
-  enable_extfs=no
-
+  enableval=$enable_extfs;
 fi
 
  if test "$enable_extfs" = yes; then
@@ -7449,17 +7447,15 @@ else
 $as_echo "$extfs_version" >&6; }
 fi
 supported_fs=$supported_fs" extfs"
-
+else
+enable_extfs="no"
 fi
 #end of check extfs
 
 ##XFS##
 # Check whether --enable-xfs was given.
 if test "${enable_xfs+set}" = set; then :
-  enableval=$enable_xfs; enable_xfs=yes
-else
-  enable_xfs=no
-
+  enableval=$enable_xfs;
 fi
 
  if test "$enable_xfs" = yes; then
@@ -7535,6 +7531,8 @@ fi
 done
 
 supported_fs=$supported_fs" xfs"
+else
+enable_xfs="no"
 fi
 xfs_version="version unknown, suggest 3.1.1"
 #end of check xfs
@@ -7542,10 +7540,7 @@ xfs_version="version unknown, suggest 3.1.1"
 ##reiserfs##
 # Check whether --enable-reiserfs was given.
 if test "${enable_reiserfs+set}" = set; then :
-  enableval=$enable_reiserfs; enable_reiserfs=yes
-else
-  enable_reiserfs=no
-
+  enableval=$enable_reiserfs;
 fi
 
  if test "$enable_reiserfs" = yes; then
@@ -7700,17 +7695,15 @@ else
 $as_echo "$reiserfs_version" >&6; }
 fi
 supported_fs=$supported_fs" reiserfs"
-
+else
+enable_reiserfs="no"
 fi
 #end of check reiserfs
 
 ##reiser4##
 # Check whether --enable-reiser4 was given.
 if test "${enable_reiser4+set}" = set; then :
-  enableval=$enable_reiser4; enable_reiser4=yes
-else
-  enable_reiser4=no
-
+  enableval=$enable_reiser4;
 fi
 
  if test "$enable_reiser4" = yes; then
@@ -7823,16 +7816,15 @@ else
 $as_echo "$reiser4_version" >&6; }
 fi
 supported_fs=$supported_fs" reiser4"
+else
+enable_reiser4="no"
 fi
 #end of check reiser4
 
 ##hfs plus##
 # Check whether --enable-hfsp was given.
 if test "${enable_hfsp+set}" = set; then :
-  enableval=$enable_hfsp; enable_hfsp=yes
-else
-  enable_hfsp=no
-
+  enableval=$enable_hfsp;
 fi
 
  if test "$enable_hfsp" = yes; then
@@ -7847,16 +7839,15 @@ fi
 if test "$enable_hfsp" = "yes"; then
 supported_fs=$supported_fs" hfs-plus"
 hfs_plus_version="build-in"
+else
+enable_hfsp="no"
 fi
 #end of check hfsplus
 
 ##fat##
 # Check whether --enable-fat was given.
 if test "${enable_fat+set}" = set; then :
-  enableval=$enable_fat; enable_fat=yes
-else
-  enable_fat=no
-
+  enableval=$enable_fat;
 fi
 
  if test "$enable_fat" = yes; then
@@ -7871,16 +7862,15 @@ fi
 if test "$enable_fat" = "yes"; then
 supported_fs=$supported_fs" fat"
 fat_version="build-in"
+else
+enable_fat="no"
 fi
 #end of check fat
 
 ##exfat##
 # Check whether --enable-exfat was given.
 if test "${enable_exfat+set}" = set; then :
-  enableval=$enable_exfat; enable_exfat=yes
-else
-  enable_exfat=no
-
+  enableval=$enable_exfat;
 fi
 
  if test "$enable_exfat" = yes; then
@@ -7895,6 +7885,8 @@ fi
 if test "$enable_exfat" = "yes"; then
 supported_fs=$supported_fs" exfat"
 exfat_version="build-in"
+else
+enable_exfat="no"
 fi
 #end of check exfat
 
@@ -7902,10 +7894,7 @@ fi
 ##NTFS##
 # Check whether --enable-ntfs was given.
 if test "${enable_ntfs+set}" = set; then :
-  enableval=$enable_ntfs; enable_ntfs=yes
-else
-  enable_ntfs=no
-
+  enableval=$enable_ntfs;
 fi
 
 
@@ -8113,6 +8102,8 @@ $as_echo "$ntfs_version" >&6; }
 else
     if test "$enable_ntfs" = "yes"; then
 	as_fn_error $? "Can't find ntfs library!" "$LINENO" 5
+    else
+	enable_ntfs="no"
     fi
 fi
 #end of check ntfs
@@ -8121,10 +8112,7 @@ fi
 ##UFS##
 # Check whether --enable-ufs was given.
 if test "${enable_ufs+set}" = set; then :
-  enableval=$enable_ufs; enable_ufs=yes
-else
-  enable_ufs=no
-
+  enableval=$enable_ufs;
 fi
 
  if test "$enable_ufs" = yes; then
@@ -8185,16 +8173,15 @@ fi
 
 supported_fs=$supported_fs" ufs"
 ufs_version="unknown, suggest 7.0-2"
+else
+enable_ufs="no"
 fi
 #end of check ufs
 
 ##VMFS##
 # Check whether --enable-vmfs was given.
 if test "${enable_vmfs+set}" = set; then :
-  enableval=$enable_vmfs; enable_vmfs=yes
-else
-  enable_vmfs=no
-
+  enableval=$enable_vmfs;
 fi
 
  if test "$enable_vmfs" = yes; then
@@ -8261,16 +8248,15 @@ fi
 supported_fs=$supported_fs" vmfs"
 vmfs_version=`gcc  $srcdir/src/deplib_version.c -o $srcdir/get_lib_version -lvmfs -DVMFS $uuidcfg`
 vmfs_version=`$srcdir/get_lib_version vmfs`
+else
+enable_vmfs="no"
 fi
 #end of check vmfs
 
 ##JFS##
 # Check whether --enable-jfs was given.
 if test "${enable_jfs+set}" = set; then :
-  enableval=$enable_jfs; enable_jfs=yes
-else
-  enable_jfs=no
-
+  enableval=$enable_jfs;
 fi
 
  if test "$enable_jfs" = yes; then
@@ -8336,16 +8322,15 @@ fi
 
 supported_fs=$supported_fs" jfs"
 jfs_version="version unknown, suggest 1.1.12"
+else
+enable_jfs="no"
 fi
 #end of check jfs
 
 ##btrfs##
 # Check whether --enable-btrfs was given.
 if test "${enable_btrfs+set}" = set; then :
-  enableval=$enable_btrfs; enable_btrfs=yes
-else
-  enable_btrfs=no
-
+  enableval=$enable_btrfs;
 fi
 
  if test "$enable_btrfs" = yes; then
@@ -8361,16 +8346,15 @@ if test "$enable_btrfs" = yes; then
 supported_fs=$supported_fs" btrfs"
 btrfs_version=`gcc  $srcdir/src/deplib_version.c $srcdir/src/btrfs/version.h  -o $srcdir/get_lib_version -DBTRFS`
 btrfs_version=`$srcdir/get_lib_version btrfs`
+else
+enable_btrfs="no"
 fi
 #end of check btrfs
 
 ##minix##
 # Check whether --enable-minix was given.
 if test "${enable_minix+set}" = set; then :
-  enableval=$enable_minix; enable_minix=yes
-else
-  enable_minix=no
-
+  enableval=$enable_minix;
 fi
 
  if test "$enable_minix" = yes; then
@@ -8385,6 +8369,8 @@ fi
 if test "$enable_minix" = "yes"; then
 supported_fs=$supported_fs" minix"
 minix_version="build-in"
+else
+enable_minix="no"
 fi
 #end of check minix
 
@@ -8392,7 +8378,7 @@ fi
 ##libncursesw##
 # Check whether --enable-ncursesw was given.
 if test "${enable_ncursesw+set}" = set; then :
-  enableval=$enable_ncursesw; enable_ncursesw=yes
+  enableval=$enable_ncursesw;
 fi
 
  if test "$enable_ncursesw" = yes; then
@@ -8476,7 +8462,7 @@ fi
 ##static linking##
 # Check whether --enable-static was given.
 if test "${enable_static+set}" = set; then :
-  enableval=$enable_static; enable_static=yes
+  enableval=$enable_static;
 fi
 
  if test "$enable_static" = yes; then
@@ -8543,7 +8529,7 @@ fi
 ##memory tracing##
 # Check whether --enable-mtrace was given.
 if test "${enable_mtrace+set}" = set; then :
-  enableval=$enable_mtrace; enable_memtrace=yes
+  enableval=$enable_mtrace;
 fi
 
  if test "$enable_memtrace" = yes; then
@@ -8559,7 +8545,7 @@ fi
 ##extra test
 # Check whether --enable-fs-test was given.
 if test "${enable_fs_test+set}" = set; then :
-  enableval=$enable_fs_test; enable_fs_test=yes
+  enableval=$enable_fs_test;
 fi
 
  if test "$enable_fs_test" = yes; then
