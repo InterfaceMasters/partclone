@@ -37,7 +37,7 @@
 #include <linux/fs.h>
 #define _(STRING) gettext(STRING)
 //#define PACKAGE "partclone"
-#include "version.h"
+//#include "version.h"
 #include "partclone.h"
 #include "checksum.h"
 
@@ -254,7 +254,7 @@ void usage(void) {
 }
 
 void print_version(void){
-	printf("Partclone : v%s (%s) \n", VERSION, git_version);
+	printf("Partclone : v%s (%s) \n", VERSION, "");
 	exit(0);
 }
 
