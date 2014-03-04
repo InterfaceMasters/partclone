@@ -48,6 +48,7 @@
 #define BLKGETSIZE64    _IOR(0x12,114,size_t)   /* Get device size in bytes. */
 #endif
 
+#define badsector_magic "BADSECTOR\0"
 
 FILE* msg = NULL;
 #ifdef HAVE_LIBNCURSESW
@@ -1502,8 +1503,6 @@ void sync_data(int fd, cmd_opt* opt) {
 }
 
 void rescue_sector(int *fd, unsigned long long pos, char *buff, cmd_opt *opt) {
-	const char *badsector_magic = "BADSECTOR\0";
-
 	if (lseek(*fd, pos, SEEK_SET) == (off_t)-1) {
 		log_mesg(0, 0, 1, opt->debug, "WARNING: lseek error at %llu\n", pos);
 		memset(buff, '?', PART_SECTOR_SIZE);
